@@ -6,8 +6,8 @@ import KeyboardLayout from "./components/KeyboardLayout.vue";
 
 <template>
   <div class="app">
-    <header><h2>typing game</h2></header>
-    <nav>
+    <header class="header-wrapper"><h2>typing game</h2></header>
+    <nav class="nav-wrapper">
       <ul>
         <li><a href="#">settings</a></li>
         <li><a href="#">high scores</a></li>
@@ -20,6 +20,7 @@ import KeyboardLayout from "./components/KeyboardLayout.vue";
     <aside>
       <TextPrompt />
     </aside>
+    <footer>Built with Vue</footer>
   </div>
 </template>
 
@@ -28,5 +29,9 @@ import KeyboardLayout from "./components/KeyboardLayout.vue";
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.app {
+  border: 1px solid green;
+  height: 100vh;
 }
 </style>
