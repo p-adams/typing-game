@@ -13,14 +13,14 @@ import KeyboardLayout from "./components/KeyboardLayout.vue";
         <li><a href="#">high scores</a></li>
       </ul>
     </nav>
-    <article>
+    <article class="article-wrapper">
       <GameScreen />
       <KeyboardLayout />
     </article>
-    <aside>
+    <aside class="aside-wrapper">
       <TextPrompt />
     </aside>
-    <footer>Built with Vue</footer>
+    <footer class="footer-wrapper">Built with Vue</footer>
   </div>
 </template>
 
