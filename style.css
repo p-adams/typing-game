@@ -1,3 +1,12 @@
+:root {
+  /** color palette  */
+  --primary-a: #2b2d42;
+  --primary-b: #8d99ae;
+  --primary-c: #edf2f4;
+  --primary-d: #ef233c;
+  --primary-e: #d90429;
+}
+
 body,
 html {
   margin: 0;

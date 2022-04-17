@@ -6,14 +6,17 @@ import KeyboardLayout from "./components/KeyboardLayout.vue";
 
 <template>
   <div class="app">
-    <header class="header-wrapper"><h2>typing game</h2></header>
+    <header class="header-wrapper">
+      <h2>typing game</h2>
+    </header>
     <nav class="nav-wrapper">
       <ul>
         <li><a href="#">settings</a></li>
         <li><a href="#">high scores</a></li>
       </ul>
     </nav>
-    <article class="article-wrapper">
+
+    <article class="content-wrapper">
       <GameScreen />
       <KeyboardLayout />
     </article>
@@ -24,14 +27,52 @@ import KeyboardLayout from "./components/KeyboardLayout.vue";
   </div>
 </template>
 
-<style>
+<style scoped>
 :root {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 .app {
-  border: 1px solid green;
   height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "nav nav"
+    "aside content"
+    "footer footer";
+  background-color: var();
+}
+
+.header-wrapper {
+  grid-area: header;
+  background-color: var();
+}
+
+.nav-wrapper {
+  display: flex;
+  width: 100%;
+  grid-area: nav;
+}
+.nav-wrapper > ul {
+  width: inherit;
+  display: flex;
+  justify-content: space-around;
+}
+
+a {
+  color: var();
+}
+
+.content-wrapper {
+  grid-area: content;
+}
+.aside-wrapper {
+  grid-area: aside;
+}
+
+.footer-wrapper {
+  grid-area: footer;
 }
 </style>
