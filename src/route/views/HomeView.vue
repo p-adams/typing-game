@@ -1,7 +1,7 @@
 <script setup>
-import TextPrompt from "../components/TextPrompt.vue";
-import GameScreen from "../components/GameScreen.vue";
-import KeyboardLayout from "../components/KeyboardLayout.vue";
+import TextPrompt from "../../components/TextPrompt.vue";
+import GameScreen from "../../components/GameScreen.vue";
+import KeyboardLayout from "../../components/KeyboardLayout.vue";
 </script>
 <template>
   <article class="home-wrapper">

@@ -1,7 +1,7 @@
 import { createWebHashHistory, createRouter } from "vue-router";
-import HomeView from "../views/HomeView.vue";
-import SettingsView from "../views/SettingsView.vue";
-import ScoresView from "../views/ScoresView.vue";
+import HomeView from "./views/HomeView.vue";
+import SettingsView from "./views/SettingsView.vue";
+import ScoresView from "./views/ScoresView.vue";
 
 export const router = createRouter({
   history: createWebHashHistory(),
