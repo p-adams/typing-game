@@ -7,23 +7,19 @@ import KeyboardLayout from "./components/KeyboardLayout.vue";
 <template>
   <div class="app">
     <header class="header-wrapper">
-      <h2>typing game</h2>
+      <h2><router-link to="/">typing game</router-link></h2>
     </header>
     <nav class="nav-wrapper">
       <ul>
-        <li><a href="#">settings</a></li>
-        <li><a href="#">high scores</a></li>
+        <li><router-link to="/settings">settings</router-link></li>
+        <li><router-link to="/scores">high scores</router-link></li>
       </ul>
     </nav>
-
     <article class="content-wrapper">
-      <GameScreen />
-      <KeyboardLayout />
+      <router-view />
     </article>
-    <aside class="aside-wrapper">
-      <TextPrompt />
-    </aside>
-    <footer class="footer-wrapper">Built with Vue</footer>
+
+    <footer class="footer-wrapper"><p>Built with Vue</p></footer>
   </div>
 </template>
 
@@ -36,12 +32,8 @@ import KeyboardLayout from "./components/KeyboardLayout.vue";
 .app {
   height: 100vh;
   width: 100%;
-  display: grid;
-  grid-template-areas:
-    "header header"
-    "nav nav"
-    "aside content"
-    "footer footer";
+  display: flex;
+  flex-direction: column;
   background-color: var();
 }
 
@@ -53,7 +45,6 @@ import KeyboardLayout from "./components/KeyboardLayout.vue";
 .nav-wrapper {
   display: flex;
   width: 100%;
-  grid-area: nav;
 }
 .nav-wrapper > ul {
   width: inherit;
@@ -61,18 +52,15 @@ import KeyboardLayout from "./components/KeyboardLayout.vue";
   justify-content: space-around;
 }
 
-a {
-  color: var();
-}
-
 .content-wrapper {
-  grid-area: content;
-}
-.aside-wrapper {
-  grid-area: aside;
+  border: 1px solid;
+  height: 550px;
 }
 
 .footer-wrapper {
-  grid-area: footer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 </style>
