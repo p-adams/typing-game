@@ -1,8 +1,4 @@
-<script setup>
-import TextPrompt from "./components/TextPrompt.vue";
-import GameScreen from "./components/GameScreen.vue";
-import KeyboardLayout from "./components/KeyboardLayout.vue";
-</script>
+<script setup></script>
 
 <template>
   <div class="app">

@@ -1,13 +1,13 @@
 <script setup>
 import TextPrompt from "../../components/TextPrompt.vue";
 import GameScreen from "../../components/GameScreen.vue";
-import KeyboardLayout from "../../components/KeyboardLayout.vue";
+import TextInput from "../../components/TextInput.vue";
 </script>
 <template>
   <article class="home-wrapper">
     <article class="game-wrapper">
       <GameScreen />
-      <KeyboardLayout />
+      <TextInput />
     </article>
     <aside class="text-prompt-wrapper">
       <TextPrompt />
