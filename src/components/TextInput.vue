@@ -1,10 +1,14 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+defineEmits(["get-input"]);
+const input = ref("");
+</script>
 <template>
   <article class="text-input-wrapper">
     <section>
       <h3>text input</h3>
       <div class="input-wrapper">
-        <input />
+        <input @input="(e) => $emit('get-input', e)" />
       </div>
     </section>
   </article>

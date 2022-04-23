@@ -2,12 +2,16 @@
 import TextPrompt from "../../components/TextPrompt.vue";
 import GameScreen from "../../components/GameScreen.vue";
 import TextInput from "../../components/TextInput.vue";
+import { ref } from "vue";
+
+const input = ref("");
 </script>
 <template>
   <article class="home-wrapper">
     <article class="game-wrapper">
       <GameScreen />
-      <TextInput />
+      {{ input }}
+      <TextInput @get-input="(e) => (input = e.target.value)" />
     </article>
     <aside class="text-prompt-wrapper">
       <TextPrompt />
