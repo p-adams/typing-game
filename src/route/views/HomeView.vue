@@ -3,7 +3,11 @@ import TextPrompt from "../../components/TextPrompt.vue";
 import GameScreen from "../../components/GameScreen.vue";
 import TextInput from "../../components/TextInput.vue";
 import { ref } from "vue";
+import { computed } from "@vue/reactivity";
 const input = ref("");
+
+const computedInput = computed(() => input.value);
+// track typing progress
 function track(text) {
   return text;
 }
