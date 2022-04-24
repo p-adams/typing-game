@@ -8,7 +8,7 @@ const input = ref("");
     <section>
       <h3>text input</h3>
       <div class="input-wrapper">
-        <input @input="(e) => $emit('get-input', e)" />
+        <textarea @input="(e) => $emit('get-input', e)"></textarea>
       </div>
     </section>
   </article>
