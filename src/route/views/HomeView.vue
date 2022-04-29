@@ -3,16 +3,18 @@ import TextPrompt, { promptText } from "../../components/TextPrompt.vue";
 import GameScreen from "../../components/GameScreen.vue";
 import TextInput from "../../components/TextInput.vue";
 import { ref } from "vue";
+import { computed } from "@vue/reactivity";
 const TIME_LIMIT = 30_000;
-const wordCount = ref(0);
-const wordsPerMinute = ref(0);
-const draft = ref("");
+const _wordCount = ref(0);
+const _wordsPerMinute = ref(0);
+const wordMatch = ref("");
+
+const matchText = computed(() => wordMatch.value[0]);
+
 // track typing progress
 function track(e) {
-  draft.value = e.target.value;
-  const wordMatch = promptText.match(draft.value);
+  wordMatch.value = promptText.match(e.target.value);
   if (wordMatch) {
-    // compare draft with promptText
     // increment wordCount
     // add word count to running WPM tally
   } else {
@@ -24,7 +26,10 @@ function track(e) {
   <article class="home-wrapper">
     <article class="game-wrapper">
       <GameScreen />
-
+      <!-- TODO: move into Game Screen -->
+      <div>
+        {{ matchText }}
+      </div>
       <TextInput @get-input="(e) => track(e)" />
     </article>
     <aside class="text-prompt-wrapper">
