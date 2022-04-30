@@ -2,31 +2,37 @@
 import TextPrompt, { promptText } from "../../components/TextPrompt.vue";
 import GameScreen from "../../components/GameScreen.vue";
 import TextInput from "../../components/TextInput.vue";
-import { ref } from "vue";
+import { onUpdated, ref } from "vue";
 import { computed } from "@vue/reactivity";
 const TIME_LIMIT = 30_000;
 const _wordsPerMinute = ref(0);
 const wordMatch = ref("");
+const matchedText = ref("");
 
-const matchText = computed(() => ({
-  text: wordMatch.value && wordMatch.value[0],
-  wordCount: wordMatch.value && wordMatch.value[0].split(/\s+/).length,
-}));
+const _promptWordCount = promptText.split(/\s+/).length;
+
+const wordCount = computed(
+  () => matchedText.value && matchedText.value.split(/\s+/).length
+);
+
 // track typing progress
 function track(e) {
-  wordMatch.value = promptText.match(e.target.value);
+  wordMatch.value = e.target.value;
+  const match = promptText.match(wordMatch.value);
+  matchedText.value = match && match[0];
 }
 </script>
 <template>
   <article class="home-wrapper">
     <article class="game-wrapper">
       <GameScreen />
+      {{ wordMatch }}
       <!-- TODO: move into Game Screen -->
       <div class="game-progress-bar">
-        <div>Text</div>
-        <div>Word Count</div>
-        <div>{{ matchText.text || "foo" }}</div>
-        <div>{{ matchText.wordCount || "bar" }}</div>
+        <div class="header">Text</div>
+        <div class="header">Word Count</div>
+        <div>{{ matchedText }}</div>
+        <div>{{ wordCount || 0 }}</div>
       </div>
       <TextInput @get-input="(e) => track(e)" />
     </article>
@@ -56,5 +62,8 @@ function track(e) {
   display: grid;
   grid-template-columns: 400px 150px;
   gap: 10px;
+}
+.game-progress-bar .header {
+  border: 1px solid;
 }
 </style>
